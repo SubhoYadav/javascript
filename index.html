@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning Dom Manipulation</title>
+  </head>
+  <body>
+    <h1 id="name">Heading 1</h1>
+    <h1 id="email">Heading 2</h1>
+    <h1 id="phone">Heading 3</h1>
+    <h1 class="age">Heading 4</h1>
+    <h1 class="age">Heading 4</h1>
+    <h1 class="age">Heading 4</h1>
+    <h1 class="age">Heading 4</h1>
+    <h1 class="age">Heading 4</h1>
+    <h1 class="age">Heading 4</h1>
+    <h1 class="age">Heading 4</h1>
+    <h1 class="age">Heading 4</h1>
+  </body>
+  <script>
+    console.log("Hello World!");
+    const name = document.getElementById("name");
+    const email = document.getElementById("email");
+    const phone = document.getElementById("phone");
+    let age = document.getElementsByClassName("age");
+    // Returns a HTMLCollection not an array of elements with the selected class name
+
+    // Selecting the same elements using tagName
+    age = document.getElementsByTagName("h1");
+    name.innerText = "Subho Yadav";
+    email.innerHTML = "subhoyadav79@gmail.com";
+    phone.innerHTML = "9007259485";
+    console.log(age);
+    age[0].innerText = 23;
+    let count = 1;
+    const array = Array(age);
+    console.log({ array });
+    // Array(age).forEach((element) => {
+    //   element.innerText = `Something - ${count++}`;
+    // });
+
+    // Always use a for of loop for iterating over a HTMLCollection
+    for (element of age) {
+      element.innerHTML = `Something - ${count++}`;
+    }
+  </script>
+</html>
+
+<!-- We cannot use array methods like map, filter, reduce, forEach etc
+with HTMLCollections -->
